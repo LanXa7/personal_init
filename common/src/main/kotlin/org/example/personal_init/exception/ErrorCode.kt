@@ -36,4 +36,6 @@ enum class ErrorCode(val code: Int, val message: String) {
 
     USER_IS_DISABLED(50017, "user is disabled"),
 
+    MINIO_ERROR(50018, "minio error"),
+
 }
