@@ -1,4 +1,4 @@
-package org.example.personal_init.config.security
+package org.example.personal_init.security
 
 import org.example.personal_init.config.properties.SecurityProperties
 import org.springframework.boot.context.properties.EnableConfigurationProperties

@@ -1,4 +1,4 @@
-package org.example.personal_init.config.security
+package org.example.personal_init.security
 
 import org.springframework.security.authentication.AbstractAuthenticationToken
 import org.springframework.security.core.GrantedAuthority

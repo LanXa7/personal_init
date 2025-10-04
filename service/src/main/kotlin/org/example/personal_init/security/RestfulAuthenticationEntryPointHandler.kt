@@ -1,4 +1,4 @@
-package org.example.personal_init.config.security
+package org.example.personal_init.security
 
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse

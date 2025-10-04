@@ -1,4 +1,4 @@
-package org.example.personal_init.config.security
+package org.example.personal_init.security
 
 import io.github.oshai.kotlinlogging.KotlinLogging
 import jakarta.servlet.FilterChain
