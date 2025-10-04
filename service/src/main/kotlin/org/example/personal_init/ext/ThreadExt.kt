@@ -3,6 +3,9 @@ package org.example.personal_init.ext
 import org.springframework.web.context.request.RequestAttributes
 import org.springframework.web.context.request.RequestContextHolder
 
+// 定义 ScopedValue 来存储请求属性
+private val REQUEST_ATTRIBUTES_SCOPE = ScopedValue.newInstance<RequestAttributes>()
+
 fun vt(
     asStart: Boolean = true,
     name: String? = null,
@@ -17,19 +20,23 @@ fun vt(
 
     val thread = builder.unstarted {
         try {
-            // 设置RequestAttributes到当前虚拟线程
-            setRequestAttributes(requestAttributes)
-
-            // 设置ContextClassLoader
-            withContextClassLoader(contextClassLoader) {
-                block()
+            // 使用 ScopedValue 来绑定请求属性
+            if (requestAttributes != null) {
+                ScopedValue.where(REQUEST_ATTRIBUTES_SCOPE, requestAttributes).run {
+                    withContextClassLoader(contextClassLoader) {
+                        runWithRequestAttributes(block)
+                    }
+                }
+            } else {
+                withContextClassLoader(contextClassLoader) {
+                    block()
+                }
             }
         } catch (ex: Exception) {
             ex.printStackTrace()
             throw ex
-        } finally {
-            RequestContextHolder.resetRequestAttributes()
         }
+        // 注意：ScopedValue 会自动清理，不需要 finally 块
     }
 
     if (asStart) {
@@ -38,9 +45,13 @@ fun vt(
     return thread
 }
 
-private fun setRequestAttributes(requestAttributes: RequestAttributes?) {
-    if (requestAttributes != null) {
-        RequestContextHolder.setRequestAttributes(requestAttributes)
+private fun runWithRequestAttributes(block: () -> Unit) {
+    // 在当前线程中设置 RequestAttributes
+    RequestContextHolder.setRequestAttributes(REQUEST_ATTRIBUTES_SCOPE.get())
+    try {
+        block()
+    } finally {
+        RequestContextHolder.resetRequestAttributes()
     }
 }
 
