@@ -1,24 +1,3 @@
-jimmer:
-  client:
-    ts:
-      path: /ts.zip
-    openapi:
-      path: /openapi.yaml
-      ui-path: /openapi.html
-      properties:
-        info:
-          title: App Service
-          description: App Service API
-          version: 1.0
-        components:
-          security-schemes:
-            AuthorizationHeader:
-              type: apiKey
-              in: header
-              name: Authorization
-        securities:
-          -   AuthorizationHeader: [ ]
-
 spring:
   datasource:
     url: jdbc:postgresql://${DATABASE_HOST_PORT}/${DATABASE_DB}?serverTimezone=Asia/Shanghai
@@ -50,3 +29,24 @@ spring:
     endpoint: ${MINIO_ENDPOINT}
     username: ${MINIO_USERNAME}
     password: ${MINIO_PASSWORD}
+
+jimmer:
+  client:
+    ts:
+      path: /ts.zip
+    openapi:
+      path: /openapi.yaml
+      ui-path: /openapi.html
+      properties:
+        info:
+          title: App Service
+          description: App Service API
+          version: 1.0
+        components:
+          security-schemes:
+            AuthorizationHeader:
+              type: apiKey
+              in: header
+              name: Authorization
+        securities:
+          -   AuthorizationHeader: [ ]

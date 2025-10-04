@@ -45,6 +45,8 @@ okhttp3 = "5.1.0"
 jwt = "4.5.0"
 # https://central.sonatype.com/artifact/com.fasterxml.jackson.module/jackson-module-kotlin
 jackson-kotlin = "2.20.0"
+# https://central.sonatype.com/artifact/org.casbin/jcasbin
+jcasbin = "1.84.0"
 
 [libraries]
 
@@ -70,6 +72,7 @@ fastexcel = { module = "cn.idev.excel:fastexcel", version.ref = "fastexcel" }
 okhttp3 = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp3" }
 jwt = { module = "com.auth0:java-jwt", version.ref = "jwt" }
 jackson-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version.ref = "jackson-kotlin" }
+jcasbin = { module = "org.casbin:jcasbin", version.ref = "jcasbin" }
 
 # 数据库
 postgresql = { module = "org.postgresql:postgresql", version.ref = "postgresql" }

@@ -1,6 +1,6 @@
-package com.example.config
+package org.example.personal_init.config
 
-import com.example.config.properties.RedisProperties
+import org.example.personal_init.config.properties.RedisProperties
 import org.redisson.Redisson
 import org.redisson.api.RedissonClient
 import org.redisson.config.Config
@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.core.io.ResourceLoader
 import org.springframework.data.redis.connection.RedisConnectionFactory
 import org.springframework.data.redis.core.RedisTemplate
-import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer
+import org.springframework.data.redis.serializer.Jackson3JsonRedisSerializer
 import org.springframework.data.redis.serializer.RedisSerializer
 import org.springframework.data.redis.serializer.StringRedisSerializer
 
@@ -31,9 +31,9 @@ class RedisConfig(
         template.hashKeySerializer = stringSerializer
 
         // 使用 Jackson 序列化器来序列化 value
-        val jackson2JsonRedisSerializer: RedisSerializer<Any> = GenericJackson2JsonRedisSerializer()
-        template.valueSerializer = jackson2JsonRedisSerializer
-        template.hashValueSerializer = jackson2JsonRedisSerializer
+        val jackson3JsonRedisSerializer: RedisSerializer<Any> = Jackson3JsonRedisSerializer(Any::class.java)
+        template.valueSerializer = jackson3JsonRedisSerializer
+        template.hashValueSerializer = jackson3JsonRedisSerializer
 
         template.afterPropertiesSet()
         return template
@@ -52,7 +52,7 @@ class RedisConfig(
     }
 
     companion object {
-        private const val REDISSON_YAML_PATH = "classpath:config/redisson.yaml"
+        private const val REDISSON_YAML_PATH = "classpath:config/redisson.yml"
     }
 
 

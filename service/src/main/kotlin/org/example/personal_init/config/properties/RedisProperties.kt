@@ -1,10 +1,9 @@
-package com.example.config.properties
+package org.example.personal_init.config.properties
 
 import org.springframework.boot.context.properties.ConfigurationProperties
-import org.springframework.boot.context.properties.bind.ConstructorBinding
 
 @ConfigurationProperties(value = "spring.data.redis")
-data class RedisProperties @ConstructorBinding constructor(
+data class RedisProperties(
     val host: String,
     val port: Int,
     val password: String,

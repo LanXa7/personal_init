@@ -1,4 +1,4 @@
-package com.example.config
+package org.example.personal_init.config
 
 import io.github.oshai.kotlinlogging.KotlinLogging
 import io.minio.MinioClient
@@ -25,7 +25,6 @@ class MinioConfig(
     }
 
     companion object {
-        
         private val log = KotlinLogging.logger {}
     }
 }

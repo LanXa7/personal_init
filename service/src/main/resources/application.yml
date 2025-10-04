@@ -1,3 +1,23 @@
 spring:
   application:
-    name: service
+    name: personal_init
+  profiles:
+    active: dev
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    default-schema: ${DATABASE_DEFAULT_SCHEMA}
+  config:
+    import:
+      - optional:file:.env[.properties]
+      - classpath:config/security.yml
+      - classpath:config/mail.yml
+
+jimmer:
+  language: kotlin
+  dialect: org.babyfish.jimmer.sql.dialect.PostgresDialect
+  show-sql: true
+  pretty-sql: true
+  inline-sql-variables: true
+  database-validation-mode: ERROR

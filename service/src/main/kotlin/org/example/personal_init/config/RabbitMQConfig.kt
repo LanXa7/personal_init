@@ -1,8 +1,8 @@
-package com.example.config
+package org.example.personal_init.config
 
 import org.springframework.amqp.core.Queue
 import org.springframework.amqp.core.QueueBuilder
-import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter
+import org.springframework.amqp.support.converter.JacksonJsonMessageConverter
 import org.springframework.amqp.support.converter.MessageConverter
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -17,6 +17,6 @@ class RabbitMQConfig {
 
     @Bean
     fun messageConverter(): MessageConverter =
-        Jackson2JsonMessageConverter()
+        JacksonJsonMessageConverter()
 
 }

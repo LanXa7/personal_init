@@ -18,4 +18,5 @@ dependencies {
     implementation(libs.bundles.flyway)
     implementation(libs.postgresql)
     implementation(libs.jackson.kotlin)
+    implementation(libs.jcasbin)
 }
