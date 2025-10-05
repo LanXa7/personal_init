@@ -7,7 +7,7 @@ kotlin = "2.2.20"
 # https://central.sonatype.com/artifact/com.google.devtools.ksp/com.google.devtools.ksp.gradle.plugin
 ksp = "2.2.20-2.0.3"
 # https://central.sonatype.com/artifact/org.springframework.boot/org.springframework.boot.gradle.plugin
-springboot = "4.0.0-M2"
+springboot = "4.0.0-M3"
 # https://central.sonatype.com/artifact/io.spring.gradle/dependency-management-plugin
 spring-dependency-management = "1.1.7"
 # https://central.sonatype.com/artifact/org.springframework.plugin/spring-plugin-core
@@ -60,7 +60,7 @@ web = { module = "org.springframework.boot:spring-boot-starter-web" }
 ampq = { module = "org.springframework.boot:spring-boot-starter-amqp" }
 validation = { module = "org.springframework.boot:spring-boot-starter-validation" }
 mail = { module = "org.springframework.boot:spring-boot-starter-mail" }
-aop = { module = "org.springframework.boot:spring-boot-starter-aop" }
+aspectj = { module = "org.springframework.boot:spring-boot-starter-aspectj" }
 security = { module = "org.springframework.boot:spring-boot-starter-security" }
 spring-plugin = { module = "org.springframework.plugin:spring-plugin-core", version.ref = "spring-plugin" }
 
@@ -86,7 +86,7 @@ testcontainers-junit-jupiter = { module = "org.testcontainers:junit-jupiter", ve
 testcontainers-bom = { module = "org.testcontainers:testcontainers-bom", version.ref = "testcontainers" }
 
 [bundles]
-spring-boot = ["web", "ampq", "validation", "mail", "aop", "security"]
+spring-boot = ["web", "ampq", "aspectj", "validation", "mail", "security"]
 flyway = ["flyway", "flyway-database-postgresql"]
 unit-test = ["mockk", "testcontainers-bom", "testcontainers-pgsql", "testcontainers-junit-jupiter"]
 jimmer = ["jimmer-sql-kotlin", "jimmer-spring-boot-starter"]

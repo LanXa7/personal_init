@@ -25,10 +25,8 @@ class UserDetailsServiceImpl(
             .build()
     }
 
-    override fun loadUserByUsername(username: String?): UserDetails {
-        return username?.let {
-            loadUserByUserId(it.toLong())
-        } ?: throw UserNotFoundException()
+    override fun loadUserByUsername(username: String): UserDetails {
+        return loadUserByUserId(username.toLong())
     }
 
 }

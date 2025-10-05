@@ -8,5 +8,5 @@ interface RevisedTime {
     /**
      * 修改时间
      */
-    val revisedTime: Instant
+    val revisedTime: Instant?
 }
