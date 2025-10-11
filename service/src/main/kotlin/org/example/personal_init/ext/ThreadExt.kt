@@ -4,7 +4,8 @@ import org.springframework.web.context.request.RequestAttributes
 import org.springframework.web.context.request.RequestContextHolder
 
 // 定义 ScopedValue 来存储请求属性
-private val REQUEST_ATTRIBUTES_SCOPE = ScopedValue.newInstance<RequestAttributes>()
+private val REQUEST_ATTRIBUTES_SCOPE =
+    ScopedValue.newInstance<RequestAttributes>()
 
 fun vt(
     asStart: Boolean = true,

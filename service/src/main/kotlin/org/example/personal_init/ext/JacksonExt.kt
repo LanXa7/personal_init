@@ -1,29 +1,17 @@
 package org.example.personal_init.ext
 
 import com.fasterxml.jackson.annotation.JsonInclude
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
-import com.fasterxml.jackson.module.kotlin.kotlinModule
 import tools.jackson.core.type.TypeReference
-import tools.jackson.databind.JacksonModule
 import tools.jackson.databind.JsonNode
 import tools.jackson.databind.ObjectMapper
-import tools.jackson.databind.ext.javatime.deser.LocalDateTimeDeserializer
-import tools.jackson.databind.ext.javatime.ser.LocalDateTimeSerializer
 import tools.jackson.databind.json.JsonMapper
+import tools.jackson.module.kotlin.kotlinModule
 import java.time.format.DateTimeFormatter
 
 private val dateTimeFormatter: DateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
 
 val objectMapper: ObjectMapper = JsonMapper.builder()
     .addModule(kotlinModule())
-    .addModule(
-        JavaTimeModule().apply {
-            val serializer = LocalDateTimeSerializer(dateTimeFormatter)
-            val deserializer = LocalDateTimeDeserializer(dateTimeFormatter)
-            addSerializer(serializer)
-            addDeserializer(deserializer)
-        } as JacksonModule
-    )
     .changeDefaultPropertyInclusion {
         it.withValueInclusion(JsonInclude.Include.NON_NULL)
     }.build()
