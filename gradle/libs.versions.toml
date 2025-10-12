@@ -18,7 +18,7 @@ spring-plugin = "4.0.0-M1"
 # https://central.sonatype.com/artifact/org.babyfish.jimmer/jimmer-spring-boot-starter
 jimmer = "0.9.111"
 # https://central.sonatype.com/artifact/org.flywaydb/flyway-core
-flyway = "11.13.2"
+flyway = "11.14.0"
 # https://central.sonatype.com/artifact/org.postgresql/postgresql
 postgresql = "42.7.8"
 
@@ -63,6 +63,7 @@ mail = { module = "org.springframework.boot:spring-boot-starter-mail" }
 aspectj = { module = "org.springframework.boot:spring-boot-starter-aspectj" }
 security = { module = "org.springframework.boot:spring-boot-starter-security" }
 spring-plugin = { module = "org.springframework.plugin:spring-plugin-core", version.ref = "spring-plugin" }
+flyway = { module = "org.springframework.boot:spring-boot-flyway" }
 
 # 组件
 redisson = { module = "org.redisson:redisson-spring-boot-starter", version.ref = "redisson" }
@@ -76,7 +77,7 @@ jcasbin = { module = "org.casbin:jcasbin", version.ref = "jcasbin" }
 
 # 数据库
 postgresql = { module = "org.postgresql:postgresql", version.ref = "postgresql" }
-flyway = { module = "org.flywaydb:flyway-core", version.ref = "flyway" }
+flyway-core = { module = "org.flywaydb:flyway-core", version.ref = "flyway" }
 flyway-database-postgresql = { module = "org.flywaydb:flyway-database-postgresql", version.ref = "flyway" }
 
 # 单元测试
@@ -86,8 +87,8 @@ testcontainers-junit-jupiter = { module = "org.testcontainers:junit-jupiter", ve
 testcontainers-bom = { module = "org.testcontainers:testcontainers-bom", version.ref = "testcontainers" }
 
 [bundles]
-spring-boot = ["web", "ampq", "aspectj", "validation", "mail", "security"]
-flyway = ["flyway", "flyway-database-postgresql"]
+spring-boot = ["web", "ampq", "aspectj", "validation", "mail", "security", "flyway"]
+flyway = ["flyway-core", "flyway-database-postgresql"]
 unit-test = ["mockk", "testcontainers-bom", "testcontainers-pgsql", "testcontainers-junit-jupiter"]
 jimmer = ["jimmer-sql-kotlin", "jimmer-spring-boot-starter"]
 

@@ -1,3 +1,5 @@
+import java.util.*
+
 plugins {
     id("spring-conventions")
     id("test-conventions")
@@ -19,4 +21,20 @@ dependencies {
     implementation(libs.postgresql)
     implementation(libs.jackson.kotlin)
     implementation(libs.jcasbin)
+    runtimeOnly("org.springframework.boot:spring-boot-properties-migrator:4.0.0-M3")
+}
+
+tasks.test {
+    useJUnitPlatform()
+
+    val envFile = rootProject.file(".env")
+    if (envFile.exists()) {
+        val properties = Properties()
+        envFile.reader().use { properties.load(it) }
+        properties.forEach {
+            val key = it.key.toString()
+            val value = it.value
+            systemProperty(key, value)
+        }
+    }
 }
