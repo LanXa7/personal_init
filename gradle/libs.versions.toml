@@ -3,9 +3,9 @@
 ### 基础
 
 java = "24"
-kotlin = "2.2.21-RC"
+kotlin = "2.2.21-RC2"
 # https://central.sonatype.com/artifact/com.google.devtools.ksp/com.google.devtools.ksp.gradle.plugin
-ksp = "2.2.21-RC-2.0.4"
+ksp = "2.2.21-RC2-2.0.4"
 # https://central.sonatype.com/artifact/org.springframework.boot/org.springframework.boot.gradle.plugin
 springboot = "4.0.0-M3"
 # https://central.sonatype.com/artifact/io.spring.gradle/dependency-management-plugin
@@ -16,7 +16,7 @@ spring-plugin = "4.0.0-M1"
 ### 数据库
 
 # https://central.sonatype.com/artifact/org.babyfish.jimmer/jimmer-spring-boot-starter
-jimmer = "0.9.111"
+jimmer = "0.9.112"
 # https://central.sonatype.com/artifact/org.flywaydb/flyway-core
 flyway = "11.14.0"
 # https://central.sonatype.com/artifact/org.postgresql/postgresql
