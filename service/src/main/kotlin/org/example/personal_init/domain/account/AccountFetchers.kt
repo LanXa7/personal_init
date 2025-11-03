@@ -1,4 +1,4 @@
-package org.example.personal_init.service.account
+package org.example.personal_init.domain.account
 
 import org.babyfish.jimmer.sql.kt.fetcher.newFetcher
 import org.example.personal_init.entity.Account

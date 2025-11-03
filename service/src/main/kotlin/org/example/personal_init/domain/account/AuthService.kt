@@ -1,4 +1,4 @@
-package org.example.personal_init.service.account
+package org.example.personal_init.domain.account
 
 import org.babyfish.jimmer.client.meta.DefaultFetcherOwner
 import org.springframework.stereotype.Service
