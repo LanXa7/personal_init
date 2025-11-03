@@ -16,7 +16,7 @@ spring-plugin = "4.0.0-M1"
 ### 数据库
 
 # https://central.sonatype.com/artifact/org.babyfish.jimmer/jimmer-spring-boot-starter
-jimmer = "0.9.112"
+jimmer = "0.9.113"
 # https://central.sonatype.com/artifact/org.flywaydb/flyway-core
 flyway = "11.14.0"
 # https://central.sonatype.com/artifact/org.postgresql/postgresql
