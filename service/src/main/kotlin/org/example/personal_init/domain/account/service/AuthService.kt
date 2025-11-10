@@ -1,10 +1,10 @@
-package org.example.personal_init.domain.account
+package org.example.personal_init.domain.account.service
 
-import org.babyfish.jimmer.client.meta.DefaultFetcherOwner
+import org.example.personal_init.domain.account.AccountFetchers
+import org.example.personal_init.domain.account.AccountRepository
 import org.springframework.stereotype.Service
 
 @Service
-@DefaultFetcherOwner(AccountFetchers::class)
 class AuthService(
     private val accountRepository: AccountRepository
 ) {

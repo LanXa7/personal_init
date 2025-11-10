@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.core.io.ResourceLoader
 import org.springframework.data.redis.connection.RedisConnectionFactory
 import org.springframework.data.redis.core.RedisTemplate
-import org.springframework.data.redis.serializer.Jackson3JsonRedisSerializer
+import org.springframework.data.redis.serializer.JacksonJsonRedisSerializer
 import org.springframework.data.redis.serializer.RedisSerializer
 import org.springframework.data.redis.serializer.StringRedisSerializer
 
@@ -31,7 +31,7 @@ class RedisConfig(
         template.hashKeySerializer = stringSerializer
 
         // 使用 Jackson 序列化器来序列化 value
-        val jackson3JsonRedisSerializer: RedisSerializer<Any> = Jackson3JsonRedisSerializer(Any::class.java)
+        val jackson3JsonRedisSerializer: RedisSerializer<Any> = JacksonJsonRedisSerializer(Any::class.java)
         template.valueSerializer = jackson3JsonRedisSerializer
         template.hashValueSerializer = jackson3JsonRedisSerializer
 

@@ -1,7 +1,7 @@
 package org.example.personal_init.security
 
 import org.example.personal_init.exception.UserNotFoundException
-import org.example.personal_init.domain.account.AuthService
+import org.example.personal_init.domain.account.service.AuthService
 import org.springframework.security.core.userdetails.User
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
