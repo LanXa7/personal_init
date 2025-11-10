@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component
 
 interface CaptchaLoginStrategy {
     val captchaReceivingMethod: CaptchaReceivingMethod
+    fun send(key: String, code: String)
     fun verify(captcha: String): Boolean
     fun getInfo(key: String): Account
 }
@@ -18,6 +19,10 @@ class EmailCaptchaLogin(
     private val accountRepository: AccountRepository
 ) : CaptchaLoginStrategy {
     override val captchaReceivingMethod = CaptchaReceivingMethod.EMAIL
+
+    override fun send(key: String, code: String) {
+        redissonUtil.auth.setVerifyCode(key, code, captchaReceivingMethod)
+    }
 
     override fun verify(captcha: String): Boolean =
         captcha == redissonUtil.auth.getVerifyCode(captcha, captchaReceivingMethod)
@@ -32,6 +37,10 @@ class PhoneCaptchaLogin(
     private val accountRepository: AccountRepository
 ) : CaptchaLoginStrategy {
     override val captchaReceivingMethod = CaptchaReceivingMethod.PHONE
+
+    override fun send(key: String, code: String) {
+        redissonUtil.auth.setVerifyCode(key, code, captchaReceivingMethod)
+    }
 
     override fun verify(captcha: String): Boolean =
         captcha == redissonUtil.auth.getVerifyCode(captcha, captchaReceivingMethod)

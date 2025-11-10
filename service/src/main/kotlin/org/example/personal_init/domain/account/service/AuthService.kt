@@ -9,6 +9,8 @@ import org.example.personal_init.entity.dto.AuthPasswordLoginInput
 import org.example.personal_init.enums.CaptchaReceivingMethod
 import org.example.personal_init.enums.CaptchaReceivingMethod.*
 import org.springframework.stereotype.Service
+import java.util.UUID
+import kotlin.collections.get
 
 @Service
 class AuthService(
@@ -32,12 +34,21 @@ class AuthService(
     }
 
     fun loginByCaptcha(input: AuthCaptchaLoginInput): Account {
-        val captchaLoginStrategy = captchaLoginStrategyMap[input.type]
-            ?: throw IllegalArgumentException("captcha receiving method not found")
+        val captchaLoginStrategy = getCaptchaLoginStrategy(input.type!!)
         if (!captchaLoginStrategy.verify(input.captcha)) {
             throw IllegalArgumentException("captcha is not valid")
         }
         return captchaLoginStrategy.getInfo(input.key)
     }
+
+    fun getCaptcha(key: String, captchaReceivingMethod: CaptchaReceivingMethod) {
+        val captchaLoginStrategy = getCaptchaLoginStrategy(captchaReceivingMethod)
+        val code = UUID.randomUUID().toString().substring(0, 6)
+        captchaLoginStrategy.send(key, code)
+    }
+
+    private fun getCaptchaLoginStrategy(captchaReceivingMethod: CaptchaReceivingMethod) =
+        captchaLoginStrategyMap[captchaReceivingMethod]
+            ?: throw IllegalArgumentException("captcha receiving method not found")
 
 }
