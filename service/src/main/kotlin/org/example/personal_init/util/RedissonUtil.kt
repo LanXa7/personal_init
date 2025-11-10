@@ -1,6 +1,7 @@
 package org.example.personal_init.util
 
 import org.example.personal_init.Const
+import org.example.personal_init.enums.CaptchaReceivingMethod
 import org.redisson.api.*
 import org.springframework.stereotype.Component
 import java.time.Duration
@@ -36,17 +37,20 @@ class AuthModule(private val redissonClient: RedissonClient) {
         redissonClient.getLock(key)
 
 
-    private fun emailVerifyCodeBucket(email: String) =
-        redissonClient.getBucket<String>(Const.VERIFY_EMAIL_DATA + email)
+    private fun verifyCodeBucket(key: String, captchaReceivingMethod: CaptchaReceivingMethod) =
+        when (captchaReceivingMethod) {
+            CaptchaReceivingMethod.EMAIL -> redissonClient.getBucket<String>(Const.VERIFY_EMAIL_DATA + key)
+            CaptchaReceivingMethod.PHONE -> redissonClient.getBucket<String>(Const.VERIFY_PHONE_DATA + key)
+        }
 
-    fun setEmailVerifyCode(email: String, code: String) =
-        emailVerifyCodeBucket(email).set(code, Duration.ofMinutes(Const.CODE_EXPIRED))
+    fun setVerifyCode(key: String, code: String, captchaReceivingMethod: CaptchaReceivingMethod) =
+        verifyCodeBucket(key, captchaReceivingMethod).set(code, Duration.ofMinutes(Const.CODE_EXPIRED))
 
-    fun getEmailVerifyCode(email: String): String? =
-        emailVerifyCodeBucket(email).get()
+    fun getVerifyCode(key: String, captchaReceivingMethod: CaptchaReceivingMethod): String? =
+        verifyCodeBucket(key, captchaReceivingMethod).get()
 
-    fun deleteEmailVerifyCode(email: String) =
-        emailVerifyCodeBucket(email).delete()
+    fun deleteVerifyCode(key: String, captchaReceivingMethod: CaptchaReceivingMethod) =
+        verifyCodeBucket(key, captchaReceivingMethod).delete()
 
     private fun captchaMinuteAtomicLong(name: String, asIp: Boolean = false): RAtomicLong {
         val atomicLong = if (asIp) {

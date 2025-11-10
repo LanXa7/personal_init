@@ -8,6 +8,8 @@ object Const {
     // 邮件验证码
     const val VERIFY_EMAIL_DATA = "verify:email:data:"
 
+    const val VERIFY_PHONE_DATA = "verify:phone:data:"
+
     // 邮件验证码过期时间
     const val CODE_EXPIRED = 3L
 

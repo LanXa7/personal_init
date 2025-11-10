@@ -7,10 +7,15 @@ import org.example.personal_init.base.BaseEntity
 interface Account : BaseEntity {
 
     @Key
+    val account: String
+
     val accountName: String
 
     @Key
     val phone: String
+
+    @Key
+    val email: String
 
     val password: String
 
