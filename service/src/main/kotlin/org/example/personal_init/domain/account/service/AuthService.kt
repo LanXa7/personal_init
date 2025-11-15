@@ -7,10 +7,9 @@ import org.example.personal_init.entity.Account
 import org.example.personal_init.entity.dto.AuthCaptchaLoginInput
 import org.example.personal_init.entity.dto.AuthPasswordLoginInput
 import org.example.personal_init.enums.CaptchaReceivingMethod
-import org.example.personal_init.enums.CaptchaReceivingMethod.*
+import org.springframework.security.crypto.bcrypt.BCrypt
 import org.springframework.stereotype.Service
-import java.util.UUID
-import kotlin.collections.get
+import java.util.*
 
 @Service
 class AuthService(
@@ -30,7 +29,13 @@ class AuthService(
 
 
     fun loginByPassword(input: AuthPasswordLoginInput) {
+        val account = accountRepository.findByAccount(input.account)?: throw IllegalArgumentException("account not found")
+        val checkPassword = BCrypt.checkpw(input.password, account.password)
+        if(checkPassword){
 
+        }else{
+            throw IllegalArgumentException("password is not valid")
+        }
     }
 
     fun loginByCaptcha(input: AuthCaptchaLoginInput): Account {
