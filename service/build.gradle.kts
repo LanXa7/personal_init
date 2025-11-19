@@ -21,7 +21,6 @@ dependencies {
     implementation(libs.postgresql)
     implementation(libs.jackson.kotlin)
     implementation(libs.jcasbin)
-    runtimeOnly("org.springframework.boot:spring-boot-properties-migrator:4.0.0-M3")
 }
 
 tasks.test {
