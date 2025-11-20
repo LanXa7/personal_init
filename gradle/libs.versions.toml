@@ -44,7 +44,7 @@ okhttp3 = "5.1.0"
 # https://central.sonatype.com/artifact/com.auth0/java-jwt
 jwt = "4.5.0"
 # https://central.sonatype.com/artifact/tools.jackson.module/jackson-module-kotlin
-jackson-kotlin = "3.0.0"
+jackson-kotlin = "3.0.2"
 # https://central.sonatype.com/artifact/org.casbin/jcasbin
 jcasbin = "1.84.0"
 
