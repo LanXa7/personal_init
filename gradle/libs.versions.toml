@@ -5,9 +5,9 @@
 java = "25"
 kotlin = "2.3.0-RC"
 # https://central.sonatype.com/artifact/com.google.devtools.ksp/com.google.devtools.ksp.gradle.plugin
-ksp = "2.3.2"
+ksp = "2.3.3"
 # https://central.sonatype.com/artifact/org.springframework.boot/org.springframework.boot.gradle.plugin
-springboot = "4.0.0-RC2"
+springboot = "4.0.0"
 # https://central.sonatype.com/artifact/io.spring.gradle/dependency-management-plugin
 spring-dependency-management = "1.1.7"
 # https://central.sonatype.com/artifact/org.springframework.plugin/spring-plugin-core
@@ -18,7 +18,7 @@ spring-plugin = "4.0.0-M1"
 # https://central.sonatype.com/artifact/org.babyfish.jimmer/jimmer-spring-boot-starter
 jimmer = "0.9.116"
 # https://central.sonatype.com/artifact/org.flywaydb/flyway-core
-flyway = "11.14.0"
+flyway = "11.17.1"
 # https://central.sonatype.com/artifact/org.postgresql/postgresql
 postgresql = "42.7.8"
 
@@ -40,13 +40,13 @@ fastexcel = "1.3.0"
 # https://central.sonatype.com/artifact/io.github.oshai/kotlin-logging
 logging = "7.0.13"
 # https://central.sonatype.com/artifact/com.squareup.okhttp3/okhttp
-okhttp3 = "5.1.0"
+okhttp3 = "5.3.2"
 # https://central.sonatype.com/artifact/com.auth0/java-jwt
 jwt = "4.5.0"
 # https://central.sonatype.com/artifact/tools.jackson.module/jackson-module-kotlin
 jackson-kotlin = "3.0.2"
 # https://central.sonatype.com/artifact/org.casbin/jcasbin
-jcasbin = "1.84.0"
+jcasbin = "1.85.1"
 
 [libraries]
 
