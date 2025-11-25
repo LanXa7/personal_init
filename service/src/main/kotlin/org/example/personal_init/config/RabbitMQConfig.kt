@@ -15,6 +15,12 @@ class RabbitMQConfig {
             .durable("mail")
             .build()
 
+    @Bean("smsQueue")
+    fun smsQueue(): Queue =
+        QueueBuilder
+            .durable("sms")
+            .build()
+
     @Bean
     fun messageConverter(): MessageConverter =
         JacksonJsonMessageConverter()

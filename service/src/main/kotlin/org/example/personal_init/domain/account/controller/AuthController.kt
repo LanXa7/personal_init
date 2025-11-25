@@ -20,12 +20,12 @@ class AuthController(
 
     @GetMapping("/captcha")
     fun getCaptcha(
-        @RequestParam key: String, @RequestParam captchaReceivingMethod: CaptchaReceivingMethod) {
+        @RequestParam key: String, @RequestParam captchaReceivingMethod: CaptchaReceivingMethod) =
         authService.getCaptcha(key, captchaReceivingMethod)
-    }
+    
 
     @PostMapping("/login/password")
-    fun loginByPassword(@RequestBody input: AuthPasswordLoginInput) =
+    fun loginByPassword(@RequestBody input: AuthPasswordLoginInput): Unit =
         authService.loginByPassword(input)
 
     @PostMapping("/login/captcha")

@@ -2,7 +2,7 @@ package org.example.personal_init.domain.account.service
 
 import org.example.personal_init.domain.account.AccountFetchers
 import org.example.personal_init.domain.account.AccountRepository
-import org.example.personal_init.domain.account.CaptchaLoginStrategy
+import org.example.personal_init.domain.account.LoginCaptchaChannelStrategy
 import org.example.personal_init.entity.Account
 import org.example.personal_init.entity.dto.AuthCaptchaLoginInput
 import org.example.personal_init.entity.dto.AuthPasswordLoginInput
@@ -13,12 +13,12 @@ import java.util.*
 
 @Service
 class AuthService(
-    captchaLoginStrategy: List<CaptchaLoginStrategy>,
+    loginCaptchaChannelStrategy: List<LoginCaptchaChannelStrategy>,
     private val accountRepository: AccountRepository
 ) {
 
     val captchaLoginStrategyMap =
-        captchaLoginStrategy.associateBy { it.captchaReceivingMethod }
+        loginCaptchaChannelStrategy.associateBy { it.captchaReceivingMethod }
 
 
     fun getAccountWithRoleAndPermissionById(userId: Long) =

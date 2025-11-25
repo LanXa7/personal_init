@@ -2,11 +2,10 @@ package org.example.personal_init.domain.account
 
 import org.example.personal_init.entity.Account
 import org.example.personal_init.enums.CaptchaReceivingMethod
-import org.example.personal_init.util.JwtUtil
 import org.example.personal_init.util.RedissonUtil
 import org.springframework.stereotype.Component
 
-interface CaptchaLoginStrategy {
+interface LoginCaptchaChannelStrategy {
     val captchaReceivingMethod: CaptchaReceivingMethod
     fun send(key: String, code: String)
     fun verify(captcha: String): Boolean
@@ -14,10 +13,10 @@ interface CaptchaLoginStrategy {
 }
 
 @Component
-class EmailCaptchaLogin(
+class EmailCaptchaChannel(
     private val redissonUtil: RedissonUtil,
     private val accountRepository: AccountRepository
-) : CaptchaLoginStrategy {
+) : LoginCaptchaChannelStrategy {
     override val captchaReceivingMethod = CaptchaReceivingMethod.EMAIL
 
     override fun send(key: String, code: String) {
@@ -32,10 +31,10 @@ class EmailCaptchaLogin(
 }
 
 @Component
-class PhoneCaptchaLogin(
+class PhoneCaptchaChannel(
     private val redissonUtil: RedissonUtil,
     private val accountRepository: AccountRepository
-) : CaptchaLoginStrategy {
+) : LoginCaptchaChannelStrategy {
     override val captchaReceivingMethod = CaptchaReceivingMethod.PHONE
 
     override fun send(key: String, code: String) {
