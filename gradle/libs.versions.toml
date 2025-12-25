@@ -27,7 +27,11 @@ postgresql = "42.7.8"
 # https://central.sonatype.com/artifact/io.mockk/mockk
 mockk = "1.14.7"
 # https://central.sonatype.com/artifact/org.testcontainers/testcontainers
-testcontainers = "2.0.2"
+testcontainers = "2.0.3"
+# https://central.sonatype.com/artifact/org.testcontainers/postgresql
+testcontainers-pgsql = "1.21.4"
+# https://central.sonatype.com/artifact/org.testcontainers/junit-jupiter
+testcontainers-junit-jupiter = "1.21.4"
 
 ### 组件
 
@@ -82,7 +86,7 @@ flyway-database-postgresql = { module = "org.flywaydb:flyway-database-postgresql
 
 # 单元测试
 mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
-testcontainers-pgsql = { module = "org.testcontainers:postgresql", version.ref = "testcontainers" }
+testcontainers-pgsql = { module = "org.testcontainers:postgresql", version.ref = "testcontainers-pgsql" }
 testcontainers-junit-jupiter = { module = "org.testcontainers:junit-jupiter", version.ref = "testcontainers" }
 testcontainers-bom = { module = "org.testcontainers:testcontainers-bom", version.ref = "testcontainers" }
 
