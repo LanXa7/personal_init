@@ -87,7 +87,7 @@ flyway-database-postgresql = { module = "org.flywaydb:flyway-database-postgresql
 # 单元测试
 mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 testcontainers-pgsql = { module = "org.testcontainers:postgresql", version.ref = "testcontainers-pgsql" }
-testcontainers-junit-jupiter = { module = "org.testcontainers:junit-jupiter", version.ref = "testcontainers" }
+testcontainers-junit-jupiter = { module = "org.testcontainers:junit-jupiter", version.ref = "testcontainers-junit-jupiter" }
 testcontainers-bom = { module = "org.testcontainers:testcontainers-bom", version.ref = "testcontainers" }
 
 [bundles]
