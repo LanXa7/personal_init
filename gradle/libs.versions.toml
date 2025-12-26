@@ -3,9 +3,9 @@
 ### 基础
 
 java = "25"
-kotlin = "2.3.0-RC3"
+kotlin = "2.3.0"
 # https://central.sonatype.com/artifact/com.google.devtools.ksp/com.google.devtools.ksp.gradle.plugin
-ksp = "2.3.3"
+ksp = "2.3.4"
 # https://central.sonatype.com/artifact/org.springframework.boot/org.springframework.boot.gradle.plugin
 springboot = "4.0.0"
 # https://central.sonatype.com/artifact/io.spring.gradle/dependency-management-plugin
@@ -16,9 +16,9 @@ spring-plugin = "4.0.0-M1"
 ### 数据库
 
 # https://central.sonatype.com/artifact/org.babyfish.jimmer/jimmer-spring-boot-starter
-jimmer = "0.9.117"
+jimmer = "0.9.119"
 # https://central.sonatype.com/artifact/org.flywaydb/flyway-core
-flyway = "11.19.0"
+flyway = "11.20.0"
 # https://central.sonatype.com/artifact/org.postgresql/postgresql
 postgresql = "42.7.8"
 
@@ -36,7 +36,7 @@ testcontainers-junit-jupiter = "1.21.4"
 ### 组件
 
 # https://central.sonatype.com/artifact/org.redisson/redisson-spring-boot-starter
-redisson = "3.52.0"
+redisson = "4.0.0"
 # https://central.sonatype.com/artifact/io.minio/minio
 minio = "8.6.0"
 # https://central.sonatype.com/artifact/cn.idev.excel/fastexcel
